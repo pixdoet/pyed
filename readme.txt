@@ -15,6 +15,10 @@ To install PyED, run the following command:
     
     git clone https://github.com/pixdoet/pyed.git
 
+To run the editor, run the following command:
+
+    python3 main.py
+
 To update PyED when possible, run the following command in the directory you intent to use PyED:
 
     git pull origin main
