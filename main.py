@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
     pyed - a simple 1 line based text editor
 
@@ -17,14 +18,14 @@
     limitations under the License.
 """
 
+
 import os
 
 def write(filename,contents):
     f = open(filename,"a")
     f.write(contents)
     if f:
-        print(f'{filename}: {os.path.getsize(filename)}')
-        print("*")
+        print(f'*{filename}: {os.path.getsize(filename)}')
         f.close()
     else:
         print("!")
@@ -33,6 +34,7 @@ def read(filename,mode):
     f = open(filename,"r")
     if mode == "p":
         print(f.read())
+        print(f'{filename}: {os.path.getsize(filename)}')
         print("*")
         f.close()
     elif mode == "n":
@@ -48,12 +50,25 @@ def read(filename,mode):
         print("?")
 
 def removeLine(filename,line):
-    f = open(filename,"a")
-    f.writelines(line,"")
-    if f:
-        pass
+    f = open(filename,"r")
+    # catch if line numbers is larger than file's line numbers
+    li = f.readlines()
+    if line > int(li):
+        print("?")
     else:
-        print("!")
+        print(li[line])
+        with open(filename,"a") as fi:
+            li[line] = "\n"
+            if li:
+                print("*")
+            else:
+                print("!")
+
+def sizeof(filename):
+    if os.path.getsize(filename):
+        return os.path.getsize(filename)
+    else:
+        return "!"
 
 def main():
     running = True
@@ -85,12 +100,15 @@ def main():
 
                 elif sk[0] == "r":
                     if sk[2]:
-                        removeLine(sk[1],sk[2])
+                        removeLine(sk[1],int(sk[2]))
                     else:
                         print("!")
                 
-            except:
-                print("?")
+                elif sk[0] == "s":
+                    print(sizeof(sk[1]))
+            
+            except Exception as e:
+                print(e)
 
 if __name__ == "__main__":
     print("*")

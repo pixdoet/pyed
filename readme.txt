@@ -36,7 +36,9 @@ There are currently 4 commands in PyED. They are:
     p: Prints out contents of a file. Usage: p [filename]
     n: Prints out contents of a file with line numbers in front. Usage: n [filename]
     w: Writes contents into a file. Usage: w [filename]
-       When using w, the editor will switch to editing mode. Type a single full stop (.) to exit out of edit mode. When exited, the editor will print a single asterisk (*)
+       When using w, the editor will switch to editing mode. Type a single full stop (.) to exit out of edit mode. 
+       When exited, the editor will print a single asterisk (*)
+    s: Prints out the size of a file. Usage: s [filename]
     q: Quits the program. Usage: q
 
 2.2 STATUS CODES
@@ -53,3 +55,5 @@ You can contact the developer on Github(pixdoet), Discord(maybeimawok#6686) or E
 
 _____5. COPYRIGHT AND LICENSES______
 This software is licensed under the Apache 2.0 license. See COPYING in this folder.
+_____6. CREDITS_____
+Thanks to the people that made Unix 'ed' for a basis for this project.
