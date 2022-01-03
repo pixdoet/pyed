@@ -97,12 +97,12 @@ def main():
                 
                 elif sk[0] == "n":
                     read(sk[1],"n")
-
-                elif sk[0] == "r":
-                    if sk[2]:
-                        removeLine(sk[1],int(sk[2]))
-                    else:
-                        print("!")
+                
+                #elif sk[0] == "r":
+                    #if sk[2]:
+                        #removeLine(sk[1],int(sk[2]))
+                    #else:
+                        #print("!")
                 
                 elif sk[0] == "s":
                     print(sizeof(sk[1]))
