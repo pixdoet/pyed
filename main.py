@@ -38,14 +38,13 @@ def read(filename,mode):
         print("*")
         f.close()
     elif mode == "n":
-        # line numbers mode
-        # do a little loop to get line numbers, then output them
-        lines = sum(
-            1 for lines in f
-        )
-        print(lines)
-        for i in range(lines):
-            print(f.readline(i) + " " + f.readlines(i))
+        # github copilot made this. nice.
+        # print every line of filename with line number in front
+        li = f.readlines()
+        for i in range(len(li)):
+            print(f'{i+1} {li[i]}')
+        print(f'{filename}: {os.path.getsize(filename)}')
+        f.close()
     else:
         print("?")
 
